@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    
+
     <!-- Google Font (Figtree) -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -40,12 +40,12 @@
                     @auth
                         <div class="d-flex align-items-center">
                             <span class="text-white me-3">{{ Auth::user()->name }}</span>
-                            
+
                             <!-- Profile link -->
                             <a href="{{ route('profile.edit') }}" class="btn btn-outline-light btn-sm me-2">
                                 Profile
                             </a>
-                            
+
                             <!-- Logout -->
                             <form method="POST" action="{{ route('logout') }}" class="d-inline">
                                 @csrf
@@ -55,12 +55,11 @@
                             </form>
                         </div>
                     @else
+                        <!-- Redirect to Login Page -->
                         <div class="d-flex">
-                            <!-- Trigger the Modal -->
-                            <button class="btn btn-outline-light btn-sm me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm me-2">
                                 Log In
-                            </button>
-                            
+                            </a>
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="btn btn-outline-light btn-sm">
                                     Register
@@ -73,33 +72,6 @@
         </div>
     </div>
 </header>
-
-<!-- Modal HTML Structure -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Login Form -->
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Log In</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 <main class="container mt-4">
     @yield('content')
