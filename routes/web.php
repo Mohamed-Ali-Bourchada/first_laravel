@@ -30,9 +30,7 @@ Route::get('/about', function () {
 Route::get('/service', function () {
     return view('services');
 })->name('service');
-Route::get('/', function () {
-    return view('home');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

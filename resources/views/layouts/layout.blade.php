@@ -147,26 +147,21 @@
 
             <!-- Main Navigation -->
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="{{ url('home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('about') }}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('service') }}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('contact') }}">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('matiere') }}">Matieres</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('epreuve') }}">Epreuves</a></li>
                     </ul>
-                </div>
             </nav>
 
             <!-- User Authentication Section -->
             <div class="user-auth">
-    @if (Route::has('login'))
-        <div class="text-end">
+            @if (Route::has('login'))
+            <div class="text-end">
             @auth
                 <div class="d-flex align-items-center">
                     <span class="text-white me-3">{{ Auth::user()->name }}</span>
@@ -191,9 +186,11 @@
         </div>
     </header>
 
-    <main class="container mt-5">
-        @yield('content')
-    </main>
+   @unless(request()->routeIs('profile.edit')) <!-- Adjust the route name to match the actual route -->
+        <main class="container mt-5">
+            @yield('content')
+        </main>
+    @endunless
 
     <!-- Footer -->
     <footer class="bottom-fixed">
