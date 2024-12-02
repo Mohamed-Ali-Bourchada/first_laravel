@@ -1,48 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@extends('layouts.layout')
+
+@section('title', 'Login')
+
+@section('content')
     <style>
-        body {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
         .card {
             border: none;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
+
         .card-header {
             background: linear-gradient(135deg, #4e54c8, #8f94fb);
             color: #fff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
+
         .btn-primary {
             background-color: #6a11cb;
             border-color: #6a11cb;
         }
+
         .btn-primary:hover {
             background-color: #2575fc;
             border-color: #2575fc;
         }
+
         a {
             color: #6a11cb;
         }
+
         a:hover {
             text-decoration: underline;
         }
     </style>
-</head>
-<body>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
@@ -108,8 +101,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection
